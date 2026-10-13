@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "YoutubeTweaker",
+  "version": "0.1.0",
+  "description": "Make YouTube quieter with independent distraction controls.",
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "YoutubeTweaker"
+  },
+  "options_ui": {
+    "page": "popup.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "settings.js",
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "youtube-tweaker@yapollon.github.io",
+      "strict_min_version": "121.0"
+    }
+  }
+}
